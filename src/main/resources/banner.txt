@@ -1,0 +1,2 @@
+${AnsiColor.RED}
+spring boot start up begin
