@@ -36,19 +36,27 @@
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
-        <!-- mybatisP -->
+
+        <!-- mybatisP 3.2.0版本包数据源问题,并且要和代码生成器版本一致 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.2</version>
         </dependency>
 
         <!-- 代码生成器 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.2</version>
         </dependency>
+
+        <!-- mybatisPlus 自动生成代码使用freemarker为模板 -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+
 
         <!-- 热部署 -->
         <dependency>

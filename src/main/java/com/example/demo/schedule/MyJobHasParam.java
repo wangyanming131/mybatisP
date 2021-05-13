@@ -21,7 +21,7 @@ public class MyJobHasParam extends QuartzJobBean {
     protected void executeInternal(org.quartz.JobExecutionContext jobExecutionContext) throws JobExecutionException {
         User user = userService.findById(1);
         if (user != null) {
-            System.out.println(user.getPassword());
+            System.out.println("password:" + user.getPassword());
         }
     }
 }

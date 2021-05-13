@@ -6,8 +6,18 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/db_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://127.0.0.1:3306/db_demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
-
-#jdbc
+#以下是mybatis-plus与mybatis配置找XML文件的区别,否则找不到配置文件找不到mapper中的方法
+#indingException:Invalid bound statement问题
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.example.demo.entity #为了配置xml文件中resultType返回值的包位置，如果未配置请使用全包名
+#showSql
+logging:
+  level:
+    com:
+      example:
+        demo:
+          mapper : debug

@@ -16,28 +16,28 @@ public class MyScheduled {
     }
 
     // 首次任务启动的延时时间
-    @Scheduled(initialDelay = 3000, fixedRate = 2000)
+    @Scheduled(initialDelay = 300000, fixedRate = 200000)
     public void initialDelay() {
         System.out.println("initialDelay:" + new Date());
     }
 
     // 两次任务开始时间间隔
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 500000)
     public void fixedRate() {
         System.out.println("fixedRate:" + new Date());
     }
 
     // 本次任务结束到下次任务开始时间间隔
-    @Scheduled(fixedDelay = 4000)
+    @Scheduled(fixedDelay = 400000)
     public void fixedDelay() {
         System.out.println("fixedDelay:" + new Date());
     }
 
 
     /**
-     * 每隔五秒触发一次
+     * 触发一次,如:Thu May 13 15:05:00 CST 2021
      */
-    @Scheduled(cron = "0/5 * * * * *")
+    @Scheduled(cron = "0 5 * * * *")
     public void cron() {
         System.out.println("cron:" + new Date());
     }
