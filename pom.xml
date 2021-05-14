@@ -41,14 +41,14 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.2</version>
+            <version>3.2.0</version>
         </dependency>
 
-        <!-- 代码生成器 -->
+        <!-- 代码生成器,高版本时MybatisPlusConfig类import需要修改 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.2</version>
+            <version>3.2.0</version>
         </dependency>
 
         <!-- mybatisPlus 自动生成代码使用freemarker为模板 -->

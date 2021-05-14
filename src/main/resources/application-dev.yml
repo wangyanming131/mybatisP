@@ -9,11 +9,18 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/db_demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+  main:
+    allow-bean-definition-overriding: true #当遇到相同名字bean时是否允许覆盖注册
 #以下是mybatis-plus与mybatis配置找XML文件的区别,否则找不到配置文件找不到mapper中的方法
 #indingException:Invalid bound statement问题
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.example.demo.entity #为了配置xml文件中resultType返回值的包位置，如果未配置请使用全包名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+
 #showSql
 logging:
   level:
