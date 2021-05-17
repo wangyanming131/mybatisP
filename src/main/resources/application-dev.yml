@@ -11,6 +11,8 @@ spring:
     password: root
   main:
     allow-bean-definition-overriding: true #当遇到相同名字bean时是否允许覆盖注册
+  messages:
+    basename: i18n.messages #配置指定读取国际化配置文件的路径(默认根路径),messages是属性文件前缀
 #以下是mybatis-plus与mybatis配置找XML文件的区别,否则找不到配置文件找不到mapper中的方法
 #indingException:Invalid bound statement问题
 mybatis-plus:
