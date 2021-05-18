@@ -64,6 +64,18 @@
             <version>3.3.7</version>
         </dependency>
 
+        <!-- spring-boot正好swagger2 一个理想的状态是设计好后,接口文档发给前端和后端,按照既定的规则各自开发,开发完对接上线即可,实际情况接口总在变化,有变化就要维护,swagger2减轻维护的工作量-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
 
         <!-- 热部署 -->
         <dependency>
