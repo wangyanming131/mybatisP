@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/hello")
@@ -17,6 +20,30 @@ public class HelloController {
     @ResponseBody
     public String read(@PathVariable String path) {
         return path;
+    }
+
+    @Value(value = "${server.port}")
+    Integer port;
+
+    @GetMapping("/set")
+    @ResponseBody
+    public String set(HttpSession session) {
+        session.setAttribute("user", "spring session");
+        return String.valueOf(port);
+    }
+
+    /**
+     * 测试考虑到SpringBoot将以集群方式启动,为了获取每一个请求到底是哪个SpringBoot提供服务,需要在每次请求返回当前服务的端口号,注入server.port即可
+     * 打包后,集群方式启动nohup java -jar demo.jar --server.port=8080 &
+     * nohup表示终端关闭时SpringBoot不停止运行,&表示让SpringBoot在后台启动
+     *
+     * @param session
+     * @return
+     */
+    @GetMapping(value = "/get")
+    @ResponseBody
+    public String get(HttpSession session) {
+        return session.getAttribute("user") + ":" + port;
     }
 
 }
