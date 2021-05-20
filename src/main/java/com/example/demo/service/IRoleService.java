@@ -15,7 +15,14 @@ import java.util.List;
  */
 public interface IRoleService extends IService<Role> {
 
-    public Role getRoleById(Integer id);
+    Role getRoleById(Integer id);
 
-    public List<Role> getByLikeNameZh(String nameZh);
+    List<Role> getByLikeNameZh(String nameZh);
+
+    List<Role> getRoleByIdGreaterThanAndLikeName(Integer id, String name);
+
+    Role updateRoleById(Role role);
+
+    Integer deleteById(Integer id);
+
 }

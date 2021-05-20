@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>mybatisP</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mybatisP</name>
     <description>Demo project for Spring Boot</description>
@@ -87,6 +87,18 @@
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
             <version>1.3.1.RELEASE</version>
+        </dependency>
+
+        <!-- SpringBoot整合redis+连接池-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <!-- cache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
         <!-- 热部署 -->

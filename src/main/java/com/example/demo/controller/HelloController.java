@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,9 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping(value = "/hello")
 public class HelloController {
+
+    @Autowired
+    HelloService helloService;
 
     @RequestMapping(value = "/say/{path}", method = RequestMethod.GET)
     public String say(@PathVariable String path) {
@@ -44,6 +49,23 @@ public class HelloController {
     @ResponseBody
     public String get(HttpSession session) {
         return session.getAttribute("user") + ":" + port;
+    }
+
+    /**
+     * redis序列化方式不同key,value结果显示不同
+     * 控制台打印:name:Tom,name2:Tom2,name3:Tom3
+     * redis客户端显示:\xAC\xED\x00\x05t\x00\x04name:\xAC\xED\x00\x05t\x00\x03Tom,name2:\xAC\xED\x00\x05t\x00\x04Tom2,name3:Tom3
+     *
+     * @return
+     */
+    @GetMapping(value = "/getValue")
+    @ResponseBody
+    public String getValue() {
+        String value = helloService.getValue();
+        value += "," + helloService.getValue2();
+        value += "," + helloService.getValue3();
+        System.out.println(value);
+        return value;
     }
 
 }
