@@ -28,6 +28,11 @@ spring:
       shutdown-timeout: 100ms
   cache:
     cache-names: c1
+  #配置security用户名/密码
+  security:
+    user:
+      name: user
+      password: 111111
 #以下是mybatis-plus与mybatis配置找XML文件的区别,否则找不到配置文件找不到mapper中的方法
 #indingException:Invalid bound statement问题
 mybatis-plus:
