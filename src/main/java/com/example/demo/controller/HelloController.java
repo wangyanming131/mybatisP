@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,10 @@ public class HelloController {
 
     @Autowired
     HelloService helloService;
+
+    // 普通的文本发送
+    @Autowired
+    SimpleMailMessage simpleMailMessage;
 
     @RequestMapping(value = "/say/{path}", method = RequestMethod.GET)
     public String say(@PathVariable String path) {
@@ -66,6 +71,12 @@ public class HelloController {
         value += "," + helloService.getValue3();
         System.out.println(value);
         return value;
+    }
+
+    @RequestMapping(value = "/sendSimpleMail")
+    @ResponseBody
+    public String sendSimpleMail() {
+        return "success";
     }
 
 }

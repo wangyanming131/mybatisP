@@ -33,6 +33,12 @@ spring:
     user:
       name: user
       password: 111111
+  mail:
+    host: smtp.qq.com #配置SMTP服务器地址
+    port: 587 #配置SMTP服务器端口号
+    username: 1580870593@qq.com
+    password: mtmpzcemxdgfgcgd
+    default-encoding: utf-8
 #以下是mybatis-plus与mybatis配置找XML文件的区别,否则找不到配置文件找不到mapper中的方法
 #indingException:Invalid bound statement问题
 mybatis-plus:
